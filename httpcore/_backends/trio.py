@@ -98,6 +98,9 @@ class TrioStream(AsyncNetworkStream):
             return socket.is_readable()
         return None
 
+    def is_readable(self) -> bool:
+        return self.get_extra_info("is_readable")
+
     def _get_socket_stream(self) -> trio.SocketStream:
         stream = self._stream
         while isinstance(stream, trio.SSLStream):

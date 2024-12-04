@@ -54,6 +54,9 @@ class MockStream(NetworkStream):
     def __repr__(self) -> str:
         return "<httpcore.MockStream>"
 
+    def is_readable(self) -> bool:
+        return True
+
 
 class MockBackend(NetworkBackend):
     def __init__(self, buffer: list[bytes], http2: bool = False) -> None:
@@ -114,6 +117,9 @@ class AsyncMockStream(AsyncNetworkStream):
 
     def __repr__(self) -> str:
         return "<httpcore.AsyncMockStream>"
+
+    def is_readable(self) -> bool:
+        return True
 
 
 class AsyncMockBackend(AsyncNetworkBackend):

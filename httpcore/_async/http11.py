@@ -377,3 +377,6 @@ class AsyncHTTP11UpgradeStream(AsyncNetworkStream):
 
     def get_extra_info(self, info: str) -> typing.Any:
         return self._stream.get_extra_info(info)
+
+    def is_readable(self) -> bool:
+        return self._stream.is_readable()

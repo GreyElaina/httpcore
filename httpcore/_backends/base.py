@@ -32,6 +32,9 @@ class NetworkStream:
     def get_extra_info(self, info: str) -> typing.Any:
         return None  # pragma: nocover
 
+    def is_readable(self) -> bool:
+        raise NotImplementedError()
+
 
 class NetworkBackend:
     def connect_tcp(
@@ -76,6 +79,9 @@ class AsyncNetworkStream:
 
     def get_extra_info(self, info: str) -> typing.Any:
         return None  # pragma: nocover
+
+    def is_readable(self) -> bool:
+        raise NotImplementedError()
 
 
 class AsyncNetworkBackend:

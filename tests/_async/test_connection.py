@@ -300,6 +300,9 @@ class NeedsRetryBackend(AsyncMockBackend):
         def get_extra_info(self, info: str) -> typing.Any:
             return self._stream.get_extra_info(info)
 
+        def is_readable(self) -> bool:
+            return self._stream.is_readable()
+
 
 @pytest.mark.anyio
 async def test_connection_retries():

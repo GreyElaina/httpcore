@@ -518,7 +518,7 @@ class AsyncHTTP2Connection(AsyncConnectionInterface):
         return self._state == HTTPConnectionState.IDLE
 
     def is_closed(self) -> bool:
-        return self._state == HTTPConnectionState.CLOSED
+        return self._state == HTTPConnectionState.CLOSED or not self._network_stream.is_readable()
 
     def info(self) -> str:
         origin = str(self._origin)

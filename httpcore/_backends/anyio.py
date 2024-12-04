@@ -93,6 +93,9 @@ class AnyIOStream(AsyncNetworkStream):
             return is_socket_readable(sock)
         return None
 
+    def is_readable(self) -> bool:
+        return self.get_extra_info("is_readable")
+
 
 class AnyIOBackend(AsyncNetworkBackend):
     async def connect_tcp(

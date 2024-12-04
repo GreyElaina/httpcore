@@ -116,6 +116,9 @@ class TLSinTLSStream(NetworkStream):  # pragma: no cover
             return is_socket_readable(self._sock)
         return None
 
+    def is_readable(self) -> bool:
+        return self.get_extra_info("is_readable")
+
 
 class SyncStream(NetworkStream):
     def __init__(self, sock: socket.socket) -> None:
@@ -182,6 +185,9 @@ class SyncStream(NetworkStream):
         if info == "is_readable":
             return is_socket_readable(self._sock)
         return None
+
+    def is_readable(self) -> bool:
+        return self.get_extra_info("is_readable")
 
 
 class SyncBackend(NetworkBackend):
